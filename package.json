@@ -47,7 +47,7 @@
     "typescript": "~5.4.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "jest --watch --no-cache",
     "test:coverage": "jest --coverage --no-cache",

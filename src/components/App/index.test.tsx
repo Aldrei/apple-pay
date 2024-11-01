@@ -6,7 +6,7 @@ describe('App component', () => {
     const screen = render(<App message="test" />);
     const el = screen.getByText(/test/i);
 
-    expect(el).toBeInTheDocument()
-    expect(screen.baseElement).toMatchSnapshot()
+    expect(el).toBeInTheDocument();
+    expect(screen.baseElement).toMatchSnapshot();
   });
-})
+});

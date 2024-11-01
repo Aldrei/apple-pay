@@ -1,11 +1,14 @@
 import './App.css';
 import { IApp } from './types';
 
+import ApplePayButtonSdk from '../ApplePayButtonSdk';
+
 function App({ message }: IApp) {
   return (
     <div className="App">
       <header className="App-header">
         <p>{message}</p>
+        <ApplePayButtonSdk />
         <a
           className="App-link"
           href="https://applepaydemo.apple.com/payment-request-api"

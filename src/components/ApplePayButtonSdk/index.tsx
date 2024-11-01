@@ -1,5 +1,7 @@
 import { useEffect, useRef } from 'react';
 
+import { checkoutSimulationService } from '../../services/vtex/checkout/simulation';
+
 const ApplePayButtonSdk = () => {
   const applePayButtonRef = useRef<HTMLElement>(null);
 
@@ -14,8 +16,13 @@ const ApplePayButtonSdk = () => {
     };
   }, []);
 
-  const handleApplePay = () => {
+  const handleApplePay = async () => {
     console.log('Target handleApplePay...');
+
+    // Only testing the call...
+    // TODO: Fix CORS errors
+    const resp = await checkoutSimulationService({});
+    console.log(resp);
 
     if (window.ApplePaySession) {
       const session = new window.ApplePaySession(1, {

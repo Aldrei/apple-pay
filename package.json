@@ -2,30 +2,49 @@
   "name": "apple-pay-ts",
   "version": "0.1.0",
   "private": true,
+  "lint-staged": {
+		"src/**/*.{js,jsx,ts,tsx,css}": [
+			"prettier --write",
+			"eslint --fix"
+		],
+		"libs/**/*.{js,ts,tsx,css}": [
+			"prettier --write",
+			"eslint --fix"
+		]
+	},
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "prettier": "^3.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-scripts": "5.0.1"
+  },
+  "devDependencies": {
     "@types/jest": "^27.5.2",
     "@types/node": "^16.18.118",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.9.5"
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.1",
+		"@typescript-eslint/parser": "^8.0.1",
+		"eslint": "~8.57.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-jsx-a11y": "^6.9.0",
+		"eslint-plugin-prettier": "^5.2.1",
+		"eslint-plugin-react": "^7.35.0",
+		"eslint-plugin-react-hooks": "^4.6.2",
+    "typescript": "~5.4.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "eject": "react-scripts eject",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css}\"",
+		"lint": "eslint \"src/**/*.{js,jsx,ts,tsx,json,css}\" --fix",
+    "lint:report": "eslint \"src/**/*.{js,jsx,ts,tsx,json,css}\" -f json -o eslint-report.json"
   },
   "browserslist": {
     "production": [

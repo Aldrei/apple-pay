@@ -1,0 +1,16 @@
+# Ignore dependency folders
+node_modules
+src/node_modules/
+
+# Ignore build folder
+src/dist/
+
+# Ignore automatically generated files
+src/**/*.min.js
+
+# Ignore settings files
+package-lock.json
+jest.config.js
+
+# Ignore specific files
+src/package.json

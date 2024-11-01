@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
-
-import { checkoutSimulationService } from '../../services/vtex/checkout/simulation';
+import { merchantValidationService } from '../../services/vtex/applePay/merchantValidation';
+import { IValidateMerchantEvent } from './types';
 
 const ApplePayButtonSdk = () => {
   const applePayButtonRef = useRef<HTMLElement>(null);
@@ -21,8 +21,8 @@ const ApplePayButtonSdk = () => {
 
     // Only testing the call...
     // TODO: Fix CORS errors
-    const resp = await checkoutSimulationService({});
-    console.log(resp);
+    // const resp = await checkoutSimulationService({});
+    // console.log(resp);
 
     if (window.ApplePaySession) {
       const session = new window.ApplePaySession(1, {
@@ -36,12 +36,22 @@ const ApplePayButtonSdk = () => {
         },
       });
 
-      session.onvalidatemerchant = () => {
-        // Validação do comerciante
-        // Aqui você deve fazer uma requisição ao seu servidor para validar o comerciante
+      session.onvalidatemerchant = async (event: IValidateMerchantEvent) => {
+        try {
+          // Validate the merchant in own API
+          const response = await merchantValidationService({
+            validationURL: event.validationURL,
+          });
+          console.log('merchantValidationService response:', response);
+
+          // Complete the Merchant validation in Apple server
+          event.completeMerchantValidation(response);
+        } catch (error) {
+          console.error(error);
+        }
       };
 
-      console.log(session);
+      console.log('ApplePaySession:', session);
 
       session.begin();
     } else {

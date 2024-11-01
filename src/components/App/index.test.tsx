@@ -1,8 +1,12 @@
-import { render, screen } from '@testing-library/react';
-import App from '.';
+import { render } from '@testing-library/react';
+import App from './index';
 
-test('renders learn react link', () => {
-  render(<App message="test" />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe('App component', () => {
+  it('renders text param for link', () => {
+    const screen = render(<App message="test" />);
+    const el = screen.getByText(/test/i);
+
+    expect(el).toBeInTheDocument()
+    expect(screen.baseElement).toMatchSnapshot()
+  });
+})

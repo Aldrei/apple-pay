@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders text param for link 1`] = `
+<body>
+  <div>
+    <div
+      class="App"
+    >
+      <header
+        class="App-header"
+      >
+        <p>
+          test
+        </p>
+        <a
+          class="App-link"
+          href="https://applepaydemo.apple.com/payment-request-api"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Apple Pay Demo
+        </a>
+        <a
+          class="App-link"
+          href="https://developers.vtex.com/docs/api-reference/checkout-api#post-/api/checkout/pub/orderForms/simulation"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          VTEX API
+        </a>
+      </header>
+    </div>
+  </div>
+</body>
+`;

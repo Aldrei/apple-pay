@@ -27,12 +27,15 @@ const ApplePayButtonSdk = () => {
     if (window.ApplePaySession) {
       const session = new window.ApplePaySession(1, {
         supportedMethods: 'https://apple.com/apple-pay',
-        data: {
-          version: 3,
-          merchantIdentifier: 'merchant.com.apdemo',
-          merchantCapabilities: ['supports3DS'],
-          supportedNetworks: ['amex', 'discover', 'masterCard', 'visa'],
-          countryCode: 'US',
+        version: 3,
+        merchantIdentifier: 'merchant.com.apdemo',
+        merchantCapabilities: ['supports3DS'],
+        supportedNetworks: ['amex', 'discover', 'masterCard', 'visa'],
+        countryCode: 'US',
+        currencyCode: 'BRL',
+        total: {
+          label: 'Total',
+          amount: '10.00',
         },
       });
 
